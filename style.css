@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+    background-color: rgb(247, 241, 234);
+    transition: background-color 0.5s
+}
+
+/*Controlling individual elements*/
+#darkModeToggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+#darkModeToggle:hover {
+    background-color: rgb(194, 194, 194);
+}
+#darkModeToggle:active {
+    background-color: rgb(155, 155, 155);
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    text-decoration: underline;
+    letter-spacing: 4px;
+    text-shadow: 3px 1px 1px rgb(192, 192, 192);
+}
+
+input, button {
+    border-radius: 5px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 10px;
+}
+
+button {    
+    background-color: rgb(239, 243, 245);
+}
+
+input, li {
+    font-family: "Lucida Handwriting";
+    font-size: 18px;
+}
+input {
+    background-color: rgb(250, 250, 250);
+}
+
+li {
+    height: max(35px, 100%);
+    line-height: max(35px, 100%);
+}
+
+#newTaskButton {
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 1px 1px black;
+}
+#newTaskButton:hover {
+    background-color: rgb(204, 204, 204);
+}
+#newTaskButton:active {
+    background-color: rgb(182, 182, 182);
+}
+
+
+/*Controlling the task control buttons*/
+.listContainer {
+    display: flex;
+}
+
+.listText {
+    max-width: 500px;
+}
+
+/*The :not(.hidden) prevents it from moving when using edit mode*/
+li:hover div div:not(.hidden) {
+    display: inline-block;
+}
+
+.taskControlContainer {
+    display: none;
+    margin-left: 20px;
+}
+
+.completeButton, .editButton, .deleteButton, .confirmButton, .discardButton, .moveUpButton, .moveDownButton {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 7px;
+    font-size: 15px;
+}
+
+.completeButton:hover, .confirmButton:hover {
+    color: rgb(104, 228, 93);
+}
+
+.confirmButton:active {
+    color: rgb(52, 138, 45);
+}
+
+.editButton:hover {
+    color: rgb(66, 126, 206);
+} 
+
+.deleteButton:hover, .discardButton:hover {
+    color: rgb(231, 49, 49);
+}
+
+.discardButton:active {
+    color: rgb(161, 26, 26);
+}
+
+.moveUpButton:hover, .moveDownButton:hover {
+    color: rgb(212, 214, 214);
+}
+
+.completeButton:active, .editButton:active, .deleteButton:active, .moveUpButton:active, .moveDownButton:active {
+    color: rgb(133, 133, 133);
+}
+
+/*Controlling what happens when the task control buttons are clicked*/
+li.completed {
+    color: rgba(187, 187, 187, 0.726);
+    text-decoration: line-through;
+    list-style: none;
+}
+
+li.completed::before {
+    content: "✓";
+    text-decoration: none;
+    /*Needs to be inline-block to not inherit the strikethrough*/
+    display: inline-block;
+    /*idk at some point it started breaking and this was the easiest fix I found*/
+    position: absolute;
+    margin-right: 7px;
+    margin-left: -20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Dark-mode settings*/
+body.dark-mode {
+    background-color: rgb(77, 73, 70);
+}
+h1.dark-mode {
+    color: rgb(221 220 220);
+    text-shadow: 3px 1px 1px rgb(18 13 13);
+}
+ul.dark-mode {
+    color: rgb(229 229 229);
+}
+input.dark-mode {
+    background-color: rgb(121, 121, 121);
+    color: #f0ecec;
+}
+input.dark-mode::placeholder {
+    color: #e9e4e4a9;
+}
+button.dark-mode {
+    background-color: rgb(128, 129, 129);
+    color: rgb(229 229 229);
+}
+button.dark-mode:hover {
+    background-color: rgb(102, 102, 102) !important;
+}
+button.dark-mode:active {
+    background-color: rgb(61, 61, 61) !important;
+}
+.completeButton.dark-mode, .editButton.dark-mode, .deleteButton.dark-mode, .moveUpButton.dark-mode, .moveDownButton.dark-mode, .confirmButton.dark-mode, .discardButton.dark-mode, .completeButton:hover.dark-mode, .editButton:hover.dark-mode, .deleteButton:hover.dark-mode, .moveUpButton:hover.dark-mode, .moveDownButton:hover.dark-mode, .confirmButton.dark-mode:hover, .discardButton.dark-mode:hover, .completeButton:active.dark-mode, .editButton:active.dark-mode, .deleteButton:active.dark-mode, .moveUpButton:active.dark-mode, .moveDownButton:active.dark-mode, .confirmButton.dark-mode:active, .discardButton.dark-mode:active {
+    background-color: transparent !important;
+}
